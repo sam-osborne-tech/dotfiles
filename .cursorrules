@@ -1,0 +1,186 @@
+# Global Cursor AI Rules for Development
+
+## Code Quality & Structure (APPLY TO EVERY CODE CHANGE)
+- **Keep functions small**: Maximum 75 lines per function - NO EXCEPTIONS
+- **Apply DRY religiously**: Extract any repeated logic into reusable functions immediately
+- **Single Responsibility**: Each function/class must do ONE thing well
+- **Descriptive naming**: Use clear, self-documenting names (no abbreviations like `getE` or `procData`)
+- **Limit nesting**: Maximum 3-4 levels of indentation
+- **Constants for magic values**: Never hardcode numbers or strings that could change
+- **Refactor as you go**: If you see repeated code while working, extract it immediately
+- **Before writing new code**: Check if similar functionality already exists that can be reused
+- Prefer composition over inheritance
+
+## Error Handling
+- Wrap all risky operations in try-catch blocks (API calls, regex, file operations, parsing)
+- Provide context in error messages: what happened, why, and how to fix
+- Return partial results instead of failing completely when possible
+- User-facing errors must be clear, actionable, and non-technical
+- Log technical details for debugging but show user-friendly messages in UI
+- Never expose stack traces or internal errors to end users
+
+## Performance & Scalability
+- **Limit data processing**: Cap text to first 10K-15K characters for regex/text operations to prevent timeouts
+- **Cap iteration counts**: Max 10-50 results depending on context (prevents runaway loops)
+- **Avoid nested loops**: O(n²) complexity kills performance - use maps/sets/dictionaries for lookups
+- **Process in bulk**: Design for batch operations, not single-item processing
+- **Cache expensive calculations**: Don't recalculate the same value repeatedly
+- **Use lazy loading**: Only fetch/process data when actually needed
+- **Profile before optimizing**: Measure actual bottlenecks before spending time optimizing
+
+## Documentation
+- Document WHY, not WHAT - code shows what it does
+- Use appropriate doc format for the language (JSDoc for JS, docstrings for Python, XML docs for C#, etc.)
+- Mark temporary code with `// TEMPORARY - Remove when...` or equivalent
+- Mark incomplete features with `// TODO: ...` or equivalent
+- Update documentation when changing code
+- Include usage examples for complex functions
+- **NEVER create .md (Markdown) documentation files** unless user explicitly asks for them
+- **No proactive documentation**: Don't create README.md, CHANGELOG.md, CONTRIBUTING.md, or other .md files on your own
+- **Documentation in code**: Prefer inline comments and code documentation over separate markdown files
+
+## Security
+- Validate all user inputs before processing
+- Sanitize data before displaying in UI
+- Use parameterized queries to prevent SQL injection
+- Never hardcode API keys, passwords, or credentials
+- Use secure credential management (environment variables, secret managers, key vaults)
+- Check user permissions before sensitive operations
+- Escape output to prevent XSS attacks
+- Use HTTPS for all external API calls
+
+## Testing & Verification (MANDATORY BEFORE CLAIMING COMPLETION)
+- **Never claim a change is finished without testing it**: ALWAYS verify changes work before saying "done"
+- **Verification methods (use at least one)**:
+  - Write and run automated tests for the changes
+  - Execute existing test suites to ensure no regressions
+  - Use Browser MCP to manually test UI changes in real browser
+  - Run the code/script and verify output matches expectations
+  - Test API endpoints with actual requests
+- **Test requirements**:
+  - Test happy path and edge cases (null, empty, max size, invalid input)
+  - Mock external API calls in tests - never hit real endpoints
+  - Aim for 80%+ code coverage minimum
+  - Test with realistic data volumes (bulk operations, large datasets)
+  - Verify error handling with invalid inputs
+  - Test boundary conditions and edge cases
+  - Use test fixtures and factories for consistent test data
+- **For UI changes**: Use Browser MCP to verify in actual browser before claiming complete
+- **For backend changes**: Write or run tests to verify functionality
+- **For API changes**: Test with actual requests and verify responses
+- **Report test results**: Always tell user what you tested and what the results were
+
+## UI/UX Best Practices
+- Show errors inline when possible (not as popups/alerts)
+- Provide clear instructions and help text
+- Validate inputs before submission
+- Show loading states during async operations
+- Disable buttons while processing to prevent double-clicks
+- Use descriptive labels and placeholders
+- Keep forms concise and well-organized
+- Provide visual feedback for all user actions
+- Make error messages actionable (tell users how to fix)
+
+## File Organization
+- Group related functions together
+- Put utility/helper methods at bottom of file
+- Constants at top of class/file
+- Public methods before private methods
+- Keep related files in same directory
+
+## Deployment & Maintenance
+- Mark temporary/experimental features clearly for easy removal
+- Keep backwards compatibility when refactoring
+- Document deployment dependencies
+- Provide rollback plans for risky changes
+
+## Performance Optimization
+- Limit regex text processing to prevent catastrophic backtracking
+- Add match count limits to prevent infinite loops
+- Use simplified patterns when possible
+- Prefer simple operations over complex ones when performance matters
+- Profile code to find bottlenecks before optimizing
+
+## API Integration
+- Handle rate limits gracefully (implement retry with exponential backoff)
+- Set appropriate timeouts (30-120s depending on operation complexity)
+- Provide fallback options when services fail (alternative providers, cached data, manual entry)
+- Log full requests/responses for debugging (sanitize sensitive data)
+- Validate responses before processing (check status codes, response structure)
+- Auto-switch to alternative providers when primary fails
+- Never trust external API responses - always validate
+
+## Data Processing
+- Validate data format before processing (check types, ranges, required fields)
+- Standardize formats for consistency (phone numbers, dates, currency, addresses)
+- Handle missing/null values gracefully (use sensible defaults or skip safely)
+- Chunk large datasets for processing (avoid loading entire dataset into memory)
+- Use streaming for large files when appropriate (read incrementally, not all at once)
+- Sanitize input data (trim whitespace, normalize case, remove invalid characters)
+- Validate parsed data before using it
+
+## Visual Documentation & Diagrams
+- **ALWAYS INCLUDE MERMAID DIAGRAMS** - No exceptions. Every technical explanation, architecture discussion, or workflow description MUST have a fully rendered diagram
+- **Diagrams must be complete and valid**: Test syntax before presenting. Never show broken or partial diagrams
+- **Diagram types to use**:
+  - `flowchart TD/LR` - Process flows, decision trees, workflows
+  - `sequenceDiagram` - API calls, user interactions, system communication
+  - `classDiagram` - Object relationships, data models
+  - `erDiagram` - Database schemas, entity relationships
+  - `graph` - Dependencies, hierarchies, network diagrams
+  - `stateDiagram-v2` - State machines, status transitions
+- **Diagram requirements (NO EXCEPTIONS)**:
+  - Must be thorough and exhaustive - show ALL steps, ALL entities, ALL relationships
+  - Include edge cases and error paths in flowcharts
+  - Label all connections and transitions clearly
+  - Use subgraphs for grouping related components
+  - Add notes/comments for complex logic
+  - Ensure valid Mermaid syntax that renders properly
+  - Never skip diagram creation - always provide visual representation
+- **When to create diagrams (ALWAYS)**:
+  - Explaining code architecture or data flow
+  - Describing API integrations or system interactions
+  - Showing user workflows or business processes
+  - Illustrating database schemas or object models
+  - Documenting decision logic or state transitions
+  - Answering "how does X work" questions
+  - Designing new features or systems
+- **Quality standards**:
+  - Use proper Mermaid markdown code blocks (```mermaid)
+  - Test that diagram syntax is valid before presenting
+  - Make diagrams comprehensive enough to understand without additional text
+  - Use consistent styling and formatting
+  - Include legends when using colors or special symbols
+
+## Cleanup & Maintenance
+- **Review your changes**: Before finishing a task, review all files modified during the session
+- **Clean up artifacts**: Remove temporary test files, debug scripts, and outdated documentation
+- **Report cleanup**: Always inform the user what was cleaned up and where
+- **Provide revert option**: List all deleted files and offer to restore if user wants them back
+- **Consolidate documentation**: Merge duplicate/outdated docs into single source of truth
+- **Remove dead code**: Delete commented-out code, unused functions, and obsolete features
+- **Examples of cleanup items**:
+  - Test scripts, debug scripts, and temporary code files
+  - Duplicate or outdated documentation files
+  - Temporary classes/functions/modules with "Test", "Debug", "Temp" prefixes
+  - Backup files (e.g., `file_old.js`, `module.bak`, `backup_script.py`)
+  - Unused imports, commented-out code blocks
+  - Log files and debug output files
+  
+## Cleanup Reporting Format
+When cleaning up, always report in this format:
+```
+Cleaned up the following:
+1. Deleted X test/debug scripts: [list full paths]
+2. Removed X duplicate documentation files: [list full paths]
+3. Deleted X temporary code files: [list full paths]
+4. Removed X unused imports/functions: [list locations]
+
+All files moved to ./archive/ (or appropriate backup location) for safety. 
+To restore any file, let me know and I'll move it back.
+```
+
+- **Always ask before permanent deletion**: Move to archive first, don't delete permanently
+- **Provide clear paths**: Show full relative paths for all cleaned files
+- **Offer batch restore**: If user wants multiple files back, restore them all at once
+
