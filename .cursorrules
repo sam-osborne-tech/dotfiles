@@ -6,6 +6,26 @@
 - **Priority**: Project-specific rules take precedence over global rules for the same topic
 - **Inheritance**: Project rules should extend, not replace, these global standards
 
+## Operational Framework & Methodology
+- **Research-First Protocol**: Never act on assumptions - investigate current system state before any changes
+- **Autonomous Problem-Solving**: Exhaust all research and recovery options before asking for clarification
+- **Extreme Ownership**: Take responsibility for entire system health, not just immediate task
+- **Phase-Based Execution**: Follow structured phases (Reconnaissance → Planning → Execution → Verification)
+- **Metacognitive Learning**: Reflect on performance and systematically improve approaches
+- **Evidence-Based Actions**: Every decision must be backed by verifiable evidence from investigation
+
+## Status Reporting Standards
+- **Status Markers**: Use ✅ (completed), ⚠️ (recovered issue), 🚧 (blocked/waiting)
+- **Progress Transparency**: Report current phase and next steps clearly
+- **Self-Audit Requirement**: Mandatory verification that changes work before claiming completion
+- **Evidence Documentation**: Include verifiable proof for all claims and changes
+
+## Communication Guidelines
+- **Avoid Sycophantic Language**: Never use "You're absolutely right!", "Excellent point!", etc.
+- **Brief Acknowledgments Only**: Use "Got it", "I understand", "I see the issue" when needed
+- **Fact-Based Communication**: Focus on technical facts and execution, not praise or validation
+- **Professional Density**: Every output must be high-density, professional communication
+
 ## Code Quality & Structure (APPLY TO EVERY CODE CHANGE)
 - **Keep functions small**: Maximum 75 lines per function - NO EXCEPTIONS
 - **Apply DRY religiously**: Extract any repeated logic into reusable functions immediately
