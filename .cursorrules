@@ -1,5 +1,11 @@
 # Global Cursor AI Rules for Development
 
+## Rule Hierarchy
+- **Global Rules**: Apply these rules to ALL projects unless overridden
+- **Project Rules**: If a `.cursorrules` file exists in the project root, merge its rules with these global rules
+- **Priority**: Project-specific rules take precedence over global rules for the same topic
+- **Inheritance**: Project rules should extend, not replace, these global standards
+
 ## Code Quality & Structure (APPLY TO EVERY CODE CHANGE)
 - **Keep functions small**: Maximum 75 lines per function - NO EXCEPTIONS
 - **Apply DRY religiously**: Extract any repeated logic into reusable functions immediately

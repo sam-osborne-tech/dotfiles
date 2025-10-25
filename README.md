@@ -19,9 +19,32 @@ chmod +x ~/dotfiles/update-rules.sh
 ls -l ~/.cursorrules
 ```
 
+## Rule Hierarchy
+
+### Global Rules (`~/.cursorrules`)
+- Apply to ALL projects by default
+- Synchronized across devices via this repository
+- Contains universal development standards
+
+### Project-Specific Rules (`./project/.cursorrules`)
+- Created in individual project root directories
+- **Extend** global rules (don't replace them)
+- **Override** global rules for specific topics
+- Add project-specific requirements
+
+**Example project structure:**
+```
+~/code/my-salesforce-project/
+├── .cursorrules          # Project-specific Salesforce rules
+├── sfdx-project.json
+└── force-app/
+```
+
+Cursor automatically merges both rule sets, with project rules taking precedence.
+
 ## Auto-Update Script
 
-**Get latest rules from GitHub:**
+**Get latest global rules from GitHub:**
 ```bash
 ~/dotfiles/update-rules.sh
 ```
