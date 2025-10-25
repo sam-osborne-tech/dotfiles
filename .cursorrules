@@ -39,6 +39,26 @@
 - **No proactive documentation**: Don't create README.md, CHANGELOG.md, CONTRIBUTING.md, or other .md files on your own
 - **Documentation in code**: Prefer inline comments and code documentation over separate markdown files
 
+## Documentation Quality Standards (WHEN CREATING DOCS)
+- **NO AI FLUFF**: Never add generic, filler, or irrelevant content just to make docs longer
+- **FACTS ONLY**: Every statement must be verifiable and based on actual code
+- **Link to code**: Include GitHub links to specific lines/files that support each claim
+  - Format: `https://github.com/owner/repo/blob/main/path/to/file.ext#L123-L145`
+  - Determine GitHub repo URL from context or ask user if unknown
+  - Link to exact line numbers where functionality exists
+- **No irrelevant sections**: Don't add "Testing", "Deployment", or other sections just to fill space
+- **Meticulous codebase search**: Search thoroughly before documenting - verify everything
+- **Examples of what NOT to do**:
+  - ❌ "This provides a robust, enterprise-grade solution..."
+  - ❌ "Easy to use and highly scalable..."
+  - ❌ Generic testing sections with no actual test references
+  - ❌ Deployment steps that don't apply to the specific code
+- **Examples of what TO do**:
+  - ✅ "The `extractEmail` function (line 45) uses regex pattern X to find emails"
+  - ✅ "See implementation: [ResumeParser.cls#L45-L67](link)"
+  - ✅ "Returns null when input is empty (line 52)"
+- **Before writing docs**: Search codebase, find exact files/lines, verify behavior, then document
+
 ## Security
 - Validate all user inputs before processing
 - Sanitize data before displaying in UI
