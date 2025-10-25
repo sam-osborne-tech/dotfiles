@@ -176,11 +176,12 @@ Cleaned up the following:
 3. Deleted X temporary code files: [list full paths]
 4. Removed X unused imports/functions: [list locations]
 
-All files moved to ./archive/ (or appropriate backup location) for safety. 
-To restore any file, let me know and I'll move it back.
+All files moved to Trash (not permanently deleted).
+To restore any file, recover it from your system Trash/Recycle Bin.
 ```
 
-- **Always ask before permanent deletion**: Move to archive first, don't delete permanently
+- **Move to Trash folder**: Use `trash` command (macOS/Linux) or system trash, NOT permanent deletion
+- **Never permanently delete**: Files should be recoverable from Trash
 - **Provide clear paths**: Show full relative paths for all cleaned files
-- **Offer batch restore**: If user wants multiple files back, restore them all at once
+- **Batch cleanup**: Clean up all artifacts in one operation when possible
 
