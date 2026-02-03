@@ -1,0 +1,205 @@
+{
+    "window.commandCenter": true,
+    "redhat.telemetry.enabled": true,
+    "window.confirmSaveUntitledWorkspace": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "workbench.colorCustomizations": {
+        "editor.background": "#ffffff",
+        "editor.foreground": "#122544",
+        "editor.lineHighlightBackground": "#f5f5f5",
+        "editor.selectionBackground": "#99c9ff",
+        "editor.inactiveSelectionBackground": "#d0d0d0",
+        "selection.background": "#e3bad3",
+        "editorCursor.foreground": "#4d79ff",
+        "editorLineNumber.foreground": "#b3b3b3",
+        "editorLineNumber.activeForeground": "#4d79ff",
+        "editorWhitespace.foreground": "#e0e0e0",
+        "editorIndentGuide.background": "#e0e0e0",
+        "editorIndentGuide.activeBackground": "#4d79ff",
+        "sideBar.background": "#f8f8f8",
+        "sideBar.foreground": "#21346d",
+        "sideBarTitle.foreground": "#4d79ff",
+        "activityBar.background": "#f0f0f0",
+        "activityBar.foreground": "#4d79ff",
+        "statusBar.background": "#4d79ff",
+        "statusBar.foreground": "#ffffff",
+        "titleBar.activeBackground": "#f8f8f8",
+        "titleBar.activeForeground": "#4d79ff",
+        "panel.background": "#ffffff",
+        "panel.border": "#e0e0e0",
+        "terminal.background": "#ffffff",
+        "terminal.foreground": "#3a98c0",
+        "input.foreground": "#000000",
+        "input.background": "#FFFFFF",
+        "input.placeholderForeground": "#00000080",
+        "inputOption.activeForeground": "#000000",
+        "gitDecoration.modifiedResourceForeground": "#CC66CC",
+        "gitDecoration.stageModifiedResourceForeground": "#CC66CC",
+        "gitDecoration.untrackedResourceForeground": "#b380b0",
+        "gitDecoration.addedResourceForeground": "#9a80b3",
+        "gitDecoration.deletedResourceForeground": "#6f9e99",
+        "gitDecoration.stageDeletedResourceForeground": "#80afb3",
+        "gitDecoration.conflictingResourceForeground": "#B38080",
+        "gitDecoration.ignoredResourceForeground": "#8c8c8c"
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "comment",
+                "settings": {
+                    "foreground": "#b3b3b3"
+                }
+            },
+            {
+                "scope": "string",
+                "settings": {
+                    "foreground": "#2A48B4"
+                }
+            },
+            {
+                "scope": ["string.quoted.double.json", "string.quoted.single.json"],
+                "settings": {
+                    "foreground": "#2A48B4"
+                }
+            },
+            {
+                "scope": "support.type.property-name.json",
+                "settings": {
+                    "foreground": "#22809d"
+                }
+            },
+            {
+                "scope": "constant.numeric",
+                "settings": {
+                    "foreground": "#4d79ff"
+                }
+            },
+            {
+                "scope": "constant.language",
+                "settings": {
+                    "foreground": "#43B1BD"
+                }
+            },
+            {
+                "scope": ["constant.character", "constant.other"],
+                "settings": {
+                    "foreground": "#AE81FF"
+                }
+            },
+            {
+                "scope": "variable",
+                "settings": {
+                    "foreground": "#4d79ff"
+                }
+            },
+            {
+                "scope": "keyword",
+                "settings": {
+                    "foreground": "#8c288c"
+                }
+            },
+            {
+                "scope": "storage",
+                "settings": {
+                    "foreground": "#8c288c"
+                }
+            },
+            {
+                "scope": "storage.type",
+                "settings": {
+                    "foreground": "#43B1BD"
+                }
+            },
+            {
+                "scope": "entity.name.class",
+                "settings": {
+                    "fontStyle": "underline",
+                    "foreground": "#3c9da8"
+                }
+            },
+            {
+                "scope": "entity.other.inherited-class",
+                "settings": {
+                    "fontStyle": "underline",
+                    "foreground": "#608D94"
+                }
+            },
+            {
+                "scope": "entity.name.function",
+                "settings": {
+                    "foreground": "#3097A8"
+                }
+            },
+            {
+                "scope": "variable.parameter",
+                "settings": {
+                    "foreground": "#4d79ff"
+                }
+            },
+            {
+                "scope": "entity.name.tag",
+                "settings": {
+                    "foreground": "#4d79ff"
+                }
+            },
+            {
+                "scope": "entity.other.attribute-name",
+                "settings": {
+                    "foreground": "#43B1BD"
+                }
+            },
+            {
+                "scope": "support.function",
+                "settings": {
+                    "foreground": "#3097A8"
+                }
+            },
+            {
+                "scope": "support.constant",
+                "settings": {
+                    "foreground": "#3097A8"
+                }
+            },
+            {
+                "scope": ["support.type", "support.class"],
+                "settings": {
+                    "foreground": "#608D94"
+                }
+            },
+            {
+                "scope": "support.other.variable",
+                "settings": {
+                    "fontStyle": "underline",
+                    "foreground": "#947061"
+                }
+            },
+            {
+                "scope": "invalid",
+                "settings": {
+                    "background": "#D68989",
+                    "fontStyle": "underline",
+                    "foreground": "#E6E6E6"
+                }
+            },
+            {
+                "scope": "invalid.deprecated",
+                "settings": {
+                    "fontStyle": "underline",
+                    "background": "#AE81FF",
+                    "foreground": "#E6E6E6"
+                }
+            }
+        ]
+    },
+    "workbench.colorTheme": "Default Light+",
+    "editor.unicodeHighlight.invisibleCharacters": false
+}
