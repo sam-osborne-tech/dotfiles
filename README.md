@@ -4,7 +4,10 @@ Global development configuration files synchronized across all devices.
 
 ## Files
 
-- `.cursorrules` - Global Cursor AI development rules
+- `.cursorrules` - Global Cursor AI development rules (legacy single-file format)
+- `.cursor/rules/` - Cursor rules directory (modern multi-file format)
+  - `always-check-skills-rules.md` - Ensures all skills and rules are evaluated on every prompt
+- `.cursor/skills/` - Cursor skills directory (personal skills that apply globally)
 - `update-rules.sh` - Auto-update script to sync latest rules from GitHub
 
 ## Quick Setup on New Device
@@ -21,12 +24,26 @@ ls -l ~/.cursorrules
 
 ## Rule Hierarchy
 
-### Global Rules (`~/.cursorrules`)
+### Global Rules (`~/.cursor/rules/` and `~/.cursorrules`)
 - Apply to ALL projects by default
 - Synchronized across devices via this repository
 - Contains universal development standards
+- Rules with `alwaysApply: true` in frontmatter are evaluated on every prompt
 
-### Project-Specific Rules (`./project/.cursorrules`)
+**Key Rules:**
+- `always-check-skills-rules.md` - Mandatory rule that ensures all skills and rules are checked before every response
+
+### Global Skills (`~/.cursor/skills/`)
+- Personal skills that apply across all projects
+- Each skill is a directory with a `SKILL.md` file
+- Skills are automatically discovered based on their descriptions
+
+**Current Skills:**
+- `ai-analysis-only` - Always use semantic search (`codebase_search`) instead of grep/regex
+- `salesforce-internal-mcp-only` - Use internal MCP for Salesforce topics
+- `valid-links-only` - Only use valid links when referencing things
+
+### Project-Specific Rules (`./project/.cursorrules` or `./project/.cursor/rules/`)
 - Created in individual project root directories
 - **Extend** global rules (don't replace them)
 - **Override** global rules for specific topics
@@ -35,7 +52,9 @@ ls -l ~/.cursorrules
 **Example project structure:**
 ```
 ~/code/my-salesforce-project/
-├── .cursorrules          # Project-specific Salesforce rules
+├── .cursorrules          # Project-specific Salesforce rules (legacy)
+├── .cursor/
+│   └── rules/            # Project-specific rules (modern)
 ├── sfdx-project.json
 └── force-app/
 ```
