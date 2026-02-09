@@ -31,7 +31,7 @@ ls -l ~/.cursorrules
 - Rules with `alwaysApply: true` in frontmatter are evaluated on every prompt
 
 **Key Rules:**
-- `always-check-skills-rules.md` - Mandatory rule that ensures all skills and rules are checked before every response
+- `always-check-skills-rules.md` - Mandatory rule with `alwaysApply: true` that ensures all skills and rules are checked before every response. This guarantees consistent application of global preferences like using semantic search instead of grep/regex.
 
 ### Global Skills (`~/.cursor/skills/`)
 - Personal skills that apply across all projects
